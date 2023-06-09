@@ -52,10 +52,9 @@ const ShopComponent = () => {
         try {
             await axios.post('https://localhost:7277/api/Shops', formData);
             setFormData({
-                ShopId: 0,
-                fullName: '',
-                dob: '',
-                email: '',
+                shopId: 0,
+                name: '',
+                location: '',
             });
             fetchData(); // Refresh the data after successful creation
         } catch (error) {
@@ -71,7 +70,7 @@ const ShopComponent = () => {
     } = useTable({ columns, data });
 
     return (
-        <Container className='mt-5'>
+        <Container className='mt-3'>
             <Row>
                 <Col lg='5'>
                     <Card>
@@ -110,7 +109,7 @@ const ShopComponent = () => {
                     <Card>
                         <Card.Header as="h5">Shops</Card.Header>
                         <Card.Body className='text-start'>
-                            {data.length == 0 ? <div>Loading...</div> :
+                            {data.length === 0 ? <div>Loading...</div> :
                                 <table {...getTableProps()} className="table">
                                     <thead>
                                         {headerGroups.map((headerGroup) => (

@@ -64,7 +64,7 @@ const CustomerComponent = () => {
   } = useTable({ columns, data });
 
   return (
-    <Container className='mt-5'>
+    <Container className='mt-3'>
       <Row>
         <Col lg='5'>
           <Card>
