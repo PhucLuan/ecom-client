@@ -1,39 +1,26 @@
 import './App.css';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route, NavLink } from 'react-router-dom';
 import CustomerComponent from './components/CustomerComponent';
+import ShopComponent from './components/ShopComponent';
+import ProductComponent from './components/ProductComponent';
+import { Nav, Navbar, Container } from 'react-bootstrap';
 
 function App() {
   return (
     <div className="App">
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
-      <nav>
-        <ul>
-          <li>
-            <Link to="/customers">Customers</Link>
-          </li>
-          <li>
-            <Link to="/products">Products</Link>
-          </li>
-          <li>
-            <Link to="/shops">Shops</Link>
-          </li>
-        </ul>
-      </nav>
+      <Navbar bg="dark" variant="dark">
+        <Container>
+          <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+          <Nav className="me-auto">
+            <Nav.Link as={NavLink} to="/customers">Customers</Nav.Link>
+            <Nav.Link as={NavLink} to="/shops">Shops</Nav.Link>
+          </Nav>
+        </Container>
+      </Navbar>
       <Routes>
         <Route path="/customers" element={<CustomerComponent />} />
+        <Route path="/Shop/:shopid/Product" element={<ProductComponent />} />
+        <Route path="/shops" element={<ShopComponent />} />
       </Routes>
     </div>
   );
